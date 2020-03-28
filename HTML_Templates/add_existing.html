@@ -1,0 +1,300 @@
+{% extends 'basenav.html' %}
+
+{% block first %}
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Item</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+
+            .inpnum
+            {
+
+
+                outline: none;
+                border: 0px;
+                background: #f5f5f5;
+                width: 100px;
+                padding: 5px;
+                height: 50%;
+                border-radius: 5px;
+                font-weight: bold;
+                font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+                font-size: 15px;
+                color: #303F9F;
+
+
+
+            }
+
+            .inpnum:hover
+            {
+                border-bottom: 3px solid #00695C;
+
+            }
+            .flowgrad
+            {
+                /*background: linear-gradient(45deg,#03a9f4,#f441a5,#03a9f4);*/
+            {#background: linear-gradient(90deg,#8E2DE2,#4A00E0,#8E2DE2);#}
+                background: linear-gradient(90deg,#2196f3, #000d81,#2196f3);
+                background-size: 400%;
+                animation: animate 11s linear infinite;
+            }
+            @keyframes animate
+            {
+                0%
+                {
+                    background-position: 0;
+                }
+                100%
+                {
+                    background-position: 400%;
+
+                }
+            }
+
+
+        </style>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    </head>
+
+    <div class="collapsed flowgrad" style="padding-top: 30px;padding-bottom: 20px;">
+        <div class="collapsed text-center" style="color: white;font-weight: bold;width: 100%;margin-bottom: 10px;font-size: 20px;">STOCK GRAPH</div>
+        <canvas id="myChart" width="400" height="110" style=""></canvas>
+
+        <script>
+            var data_url='{% url 'get_stockdata' %}'
+            labels=[]
+            datalist=[]
+            $.ajax({
+                method: "GET",
+                url:data_url,
+                success:function (response_data) {
+                    labels=response_data.response_labels
+                    datalist=response_data.response_data
+
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets:
+                                [
+                                    {
+                                        label: 'LINE GRAPH',
+                                        strokeColor:"#fff",
+                                        data: datalist,
+                                        backgroundColor: "rgba(9,0,95,0.67)",
+                                        borderColor: "rgb(0,186,203)",
+                                        borderWidth: 5
+                                    },
+                                    {
+                                        label: "BAR GRAPH",
+                                        borderWidth: 5,
+                                        type: "line",
+                                        borderColor: "#000560",
+                                        data: datalist,
+                                        fill: false
+                                    }
+                                ]
+                        },
+                        options: {
+                            scales: {
+                                yAxes:
+                                    [{
+
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontColor: '#fff',
+                                            fontSize: 15
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            fontColor: '#fff',
+                                            labelString: 'PROFIT',
+                                            fontSize: 20
+                                        }
+                                        ,gridLines: {
+                                            display: true,
+                                            color: "#fff"
+                                        }
+                                    }],
+                                xAxes:
+                                    [{
+
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontColor: '#fff',
+                                            fontSize: 15
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            fontColor: '#fff',
+                                            labelString: 'PRODUCT NAME',
+                                            fontSize: 20
+                                        }
+                                        ,gridLines: {
+                                            display: true,
+                                            color: "#fff"
+                                        }
+                                    }]
+                            }
+                        }
+                    })
+                }
+            })
+
+
+        </script>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    <body>
+    <div class="container">
+
+        <table class="table  table-dark table-striped table-hover text-center" style="margin-top: 60px;margin-bottom: 100px;padding: 10px;font-size: 20px;box-shadow: 5px 5px 12px black;">
+
+            <thead>
+
+            <tr>
+                <td colspan="6" class="text-center" style="background: linear-gradient(90deg,#0f0c29,#302b63,#24243e)"><i class="fa fa-product-hunt" aria-hidden="true"></i> PRODUCTS</td>
+            </tr>
+            <tr>
+                {% for msg in messages %}
+                    <td colspan="5" style="padding: 15px;background: #ff0002;color: #fff;font-weight: bold;border: none;">{{msg}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td style="padding: 15px;background: #000;color: #c1a0ff">NAME</td>
+                <td style="padding: 15px;background: #000;color: #c1a0ff"><i class="fa fa-inr" aria-hidden="true"></i> COST</td>
+                <td style="padding: 15px;width: 500px;background: #000;color: #c1a0ff"><i class="fa fa-shopping-basket" aria-hidden="true"></i> STOCK</td>
+                <td style="padding: 15px;background: #000;color: #c1a0ff"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i> QUANTITY</td>
+                <td style="padding: 15px;background: #000;color: #c1a0ff"><i class="fa fa-cart-plus" aria-hidden="true"></i> ADD</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for item in proli %}
+                <form method="post" action={% url 'add_pro' item.id %}>
+                    {% csrf_token %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.cost }}</td>
+
+                        {% if item.quantity < 40 %}
+
+                            <td>
+                                <div class="progress" style="font-weight: bold;width: 100%;height: 30px;">
+                                    <div class="progress-bar progress-bar-striped bg-danger active text-center" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ item.quantity }}%;height: 30px; font-size: 20px;">
+                                        {{ item.quantity }}
+                                    </div>
+                                </div>
+                            </td>
+
+                        {% elif item.quantity < 70 %}
+                            <td>
+                                <div class="progress" style="font-weight: bold;width: 100%;height: 30px;">
+                                    <div class="progress-bar progress-bar-striped bg-warning active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ item.quantity }}%;height: 30px; font-size: 20px;">
+                                        {{ item.quantity }}
+                                    </div>
+                                </div>
+                            </td>
+
+                        {% elif item.quantity < 100 %}
+                            <td>
+                                <div class="progress" style="font-weight: bold;width: 100%;height: 30px;">
+                                    <div class="progress-bar progress-bar-striped bg-info active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ item.quantity }}%;height: 30px; font-size: 20px;">
+                                        {{ item.quantity }}
+                                    </div>
+                                </div>
+                            </td>
+
+                        {% else %}
+                            <td>
+                                <div class="progress" style="font-weight: bold;width: 100%;height: 30px;">
+                                    <div class="progress-bar progress-bar-striped bg-primary active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%;height: 30px; font-size: 20px;">
+                                        {{ item.quantity }}
+                                    </div>
+                                </div>
+                            </td>
+                        {% endif %}
+
+                        <td>
+
+                            <input type="number" class="inpnum text-center" name="quan_{{ item.id }}" value="0" required>
+
+                        </td>
+
+                        <td>
+
+                            <input type="submit" value="ADD" class="submit bg-primary  form-control" style="border: none;font-weight: bold;border-radius: 8px;color: white;padding: 3px 15px;">
+                        </td>
+
+
+                    </tr>
+
+
+                </form>
+
+            {% endfor %}
+
+            <tr>
+                <td colspan="6">
+                    <div class="container">
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"  class="submit  form-control" style="width: 100%;height: 100%;background: linear-gradient(90deg,#1500ff,#9a03ff,#ff41c7);border: none;font-weight: bold;color: #ffffff;;padding: 3px 2px;"><i class="fa fa-plus"></i> Add New Item</button>
+
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade text-dark" style="margin-top: 250px;" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header" STYLE="color: white ;padding: 10px 15px;background: linear-gradient(90deg,#0f0c29,#302b63,#24243e);">
+
+                                        <h4 class="modal-title " style="background: rgba(15,12,41,0)">New Item</h4>
+                                    </div>
+                                    <form method="post" action="{% url 'add_new_product' %}" style="padding-bottom: 0px;">
+                                        {% csrf_token %}
+                                        <div class="modal-body">
+
+                                            <input type="text" name="name" placeholder="Product Name" required style="border: none;outline: none;border-bottom: 5px solid #0006ff;margin-bottom: 5px;"><br>
+                                            <input type="number" name="cost" placeholder="Product Cost" required style="border: none;outline: none;border-bottom: 5px solid #ff0900;margin-bottom: 5px;"><br>
+                                            <input type="number" name="quantity" placeholder="Product Quantity" required style="border: none;outline: none;border-bottom: 5px solid #11ff00;margin-bottom: 5px;"><br>
+
+                                            <button class="bg-primary" style="background: #11ff00;color: white;border: none;border-radius: 3px;padding: 5px;font-size: 20px;margin-bottom: -30px; margin-top: 10px;"><i class="fa fa-plus"></i> Add Item</button>
+                                        </div>
+
+                                    </form>
+                                    <div class="modal-footer" style=" background: linear-gradient(90deg,#0f0c29,#302b63,#24243e);color: white ;padding: 5px;">
+
+
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: rgba(90,94,255,0);margin-bottom: 0px;color: white;;padding: 5px;font-size: 20px"><i class="fa fa-close"></i> Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+    </body>
+    </html>
+
+
+
+
+
+{% endblock %}

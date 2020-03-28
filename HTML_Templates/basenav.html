@@ -1,0 +1,81 @@
+{% load static %}
+{% static 'image' as imgpath %}
+
+{% block first %}
+{% endblock %}
+
+
+<head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="{% static 'image/brain.svg' %}" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+        <style>
+            .nav{
+                box-shadow: 5px 5px 20px #000000;
+                background: linear-gradient(90deg, #0011ff, #5a5eff 60%);
+                font-size: 20px;
+                font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+            }
+
+            .footer {
+position: relative;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+                box-shadow: 5px -5px 20px #000000;
+                background: linear-gradient(90deg, #0011ff, #5a5eff 60%);
+                font-size: 20px;
+                border-radius: 100px 100px 0px 0px;
+                padding: 5px;
+                font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+        </style>
+</head>
+
+
+
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark sticky-top nav" >
+  <a class="navbar-brand" href="{% url 'home' %}"><i class="fa fa-user-circle-o fa-lg" style="color: #a5a6eb" aria-hidden="true"></i> Hello, {{ user.username }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link"  href="{% url 'add_existing' %}"><i class="fa fa-plus-circle" style="color: #a5a6eb"  aria-hidden="true"></i> Add Item</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'load_sell_item' %}"><i class="fa fa-paper-plane" style="color: #a5a6eb" aria-hidden="true"></i> Sell Item</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'history' 'none' %}"><i class="fa fa-history" style="color: #a5a6eb" aria-hidden="true"></i> Selling History</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout <i class="fa fa-motorcycle" style="color: #a5a6eb" aria-hidden="true"></i></a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+
+
+    {% block content %}
+    {% endblock%}
+
+    <div class="footer">
+&copy2020 Deep_Menpara. All rights registered.
+</div>

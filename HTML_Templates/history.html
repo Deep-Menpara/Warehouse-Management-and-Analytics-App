@@ -1,0 +1,201 @@
+{% extends 'basenav.html' %}
+{% load static %}
+{% block first %}
+    <head>
+        <meta charset="UTF-8">
+        <title>History</title>
+
+    <style type="text/css" rel="stylesheet">
+    .flowgrad
+      {
+      	/*background: linear-gradient(45deg,#03a9f4,#f441a5,#03a9f4);*/
+      	background: linear-gradient(90deg, #ff00f5, #e0005c,#ff00f5);
+		background-size: 400%;
+		animation: animate 11s linear infinite;
+      }
+      @keyframes animate
+      {
+			0%
+			{
+				background-position: 0;
+			}
+			100%
+			{
+				background-position: 400%;
+
+			}
+		}
+            .flowgrad2
+      {
+      	/*background: linear-gradient(45deg,#03a9f4,#f441a5,#03a9f4);*/
+      	background: linear-gradient(90deg, #ff00f5, #e0005c,#ff00f5);
+		background-size: 400%;
+		animation: animate 11s linear infinite;
+      }
+
+
+
+            </style>
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        </head>
+
+
+
+        <div class="collapsed flowgrad" style="padding-top: 30px;padding-bottom: 20px;">
+         <div class="collapsed text-center" style="color: white;font-weight: bold;width: 100%;margin-bottom: 10px;font-size: 20px;">{{ user.username }}'s PROFIT GRAPH</div>
+
+        <canvas id="myChart" width="400" height="110" style=""></canvas>
+
+        <script>
+            var data_url='{% url 'get_userdata' %}'
+            labels=[]
+            datalist=[]
+                $.ajax({
+                    method: "GET",
+                    url:data_url,
+                    success:function (response_data) {
+                        labels=response_data.response_labels
+                        datalist=response_data.response_data
+
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: labels,
+                                datasets:
+                                    [
+                                        {
+                                        label: 'BAR GRAPH',
+                                            strokeColor:"#fff",
+                                        data: datalist,
+                                        backgroundColor: "rgba(255,0,9,0.54)",
+                                        borderColor: "rgb(77,0,4)",
+                                        borderWidth: 5
+                                        },
+                                        {
+                                          label: "LINE GRAPH",
+                                            borderWidth: 5,
+                                          type: "line",
+                                          borderColor: "rgb(77,0,4)",
+                                          data: datalist,
+                                          fill: false
+                                        }
+                                    ]
+                                },
+                            options: {
+                                scales: {
+                                    yAxes:
+                                        [{
+
+                                            ticks: {
+                                                beginAtZero: true,
+                                                fontColor: '#fff',
+                                                fontSize: 15
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                fontColor: '#fff',
+                                                labelString: 'PROFIT',
+                                                fontSize: 20
+                                            }
+                                            ,gridLines: {
+                                                display: true,
+                                                color: "#fff"
+                                            }
+                                        }],
+                                    xAxes:
+                                        [{
+
+                                            ticks: {
+                                                beginAtZero: true,
+                                                fontColor: '#fff',
+                                                fontSize: 15
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                fontColor: '#fff',
+                                                labelString: 'DATE',
+                                                fontSize: 20
+                                            }
+                                            ,gridLines: {
+                                                display: true,
+                                                color: "#fff"
+                                            }
+                                        }]
+                                }
+                            }
+                        })
+                    }
+                })
+
+
+        </script>
+        </div>
+
+{% endblock %}
+
+{% block content %}
+    <body>
+
+    <div class="container">
+        <table class="table  table-dark table-striped table-hover text-center" style="margin-top: 60px;margin-bottom: 100px;padding: 10px;font-size: 20px;box-shadow: 5px 5px 12px black;">
+            {% csrf_token %}
+            <thead>
+            <tr>
+                <td colspan="6" class="text-center" style="background: linear-gradient(90deg,#0f0c29,#302b63,#24243e)"><i class="fa fa-history" style="color: #fff" aria-hidden="true"></i> HISTORY</td>
+            </tr>
+            <tr>
+                <td style="padding: 15px;background: #000;color: #c1a0ff ">ID</td>
+                <td style="padding: 15px;background: #000;color: #c1a0ff">SOLD TO</td>
+                <td style="padding: 15px;background: #000;color: #c1a0ff"><i class="fa fa-inr" aria-hidden="true"></i> PROFIT</td>
+                <td style="padding: 15px;width: 500px;background: #000;color: #c1a0ff"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> DATE</td>
+                <td style="padding: 15px;background: #000;color: #c1a0ff "><i class="fa fa-window-maximize" aria-hidden="true"></i> VIEW</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for item in bills %}
+                <tr>
+                    <form method="post" action="{% url 'history' item.billid %}">
+                        {% csrf_token %}
+                        <td>{{ item.billid }}<input type="hidden" name="{{ item.id }}" value="{{ item.id }}"></td>
+                        <td>{{ item.soldto }}</td>
+                        <td>{{ item.profit }} <i class="fa fa-inr" aria-hidden="true"></i></td>
+                        <td>{{ item.date }}</td>
+                        <td><button class="submit  form-control" style="background: linear-gradient(90deg,#1500ff,#9a03ff,#ff41c7);border: none;font-weight: bold;color: #ffffff;;padding: 3px 2px;"><i class="fa fa-window-maximize" aria-hidden="true"></i> VIEW</button></td>
+                    </form>
+                </tr>
+
+                {% if bill_idabc == item.billid %}
+
+                    <tr style="background: #777"><td colspan="5">
+                        <div class="row flowgrad" style="border-radius: 5px;margin: 0px 15px 10px 15px;box-shadow: 3px 3px 10px black;padding: 5px 5px 8px 5px; ">
+                            <div class="col">NAME</div>
+                            <div class="col"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i> QUANTITY</div>
+                            <div class="col"><i class="fa fa-inr" aria-hidden="true"></i> SP</div>
+                        </div>
+                        {% for billitem in billdet %}
+                        <div class="row flowgrad" style="border-radius: 5px;margin: 0px 15px 0px 15px;box-shadow: 3px 1px 10px black;padding: 5px 5px 8px 5px; ">
+                            <div class="col">{{ billitem.name }}</div>
+                            <div class="col">{{ billitem.quantity }}</div>
+                            <div class="col">{{ billitem.sellingprice }} <i class="fa fa-inr" aria-hidden="true"></i></div>
+                        </div>
+                        {% endfor %}
+                    </td></tr>
+
+                {% endif %}
+
+
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    </body>
+{% endblock %}

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e988e049-f544-4de8-ab6b-10c0ebc196b7" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1YlImpNgY81vuA7ZnXk6TliaQnp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/image" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DEEP MENPARA\DJANGO_PROJECT\Inventory\static\image" />
+      <recent name="C:\Users\DEEP MENPARA\DJANGO_PROJECT\Inventory\static" />
+      <recent name="C:\Users\DEEP MENPARA\DJANGO_PROJECT\Inventory\HTML_Templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DEEP MENPARA\DJANGO_PROJECT\Inventory\static\registration" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Inventory" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Inventory" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Inventory.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e988e049-f544-4de8-ab6b-10c0ebc196b7" name="Default Changelist" comment="" />
+      <created>1583510915216</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583510915216</updated>
+      <workItem from="1583510916609" duration="658000" />
+      <workItem from="1583582889201" duration="20875000" />
+      <workItem from="1583639294968" duration="9632000" />
+      <workItem from="1583670871493" duration="176000" />
+      <workItem from="1583671882597" duration="6955000" />
+      <workItem from="1583685777702" duration="3206000" />
+      <workItem from="1583742798868" duration="8340000" />
+      <workItem from="1583770628214" duration="7189000" />
+      <workItem from="1583824085923" duration="10107000" />
+      <workItem from="1583844740733" duration="7296000" />
+      <workItem from="1583900929033" duration="364000" />
+      <workItem from="1583911578314" duration="874000" />
+      <workItem from="1583921450217" duration="1061000" />
+      <workItem from="1583926983064" duration="2142000" />
+      <workItem from="1583936981966" duration="10801000" />
+      <workItem from="1584005578572" duration="1638000" />
+      <workItem from="1584008075512" duration="793000" />
+      <workItem from="1584031920558" duration="10720000" />
+      <workItem from="1584073086052" duration="2925000" />
+      <workItem from="1584079592115" duration="373000" />
+      <workItem from="1584082867269" duration="2710000" />
+      <workItem from="1584091768826" duration="756000" />
+      <workItem from="1584262420434" duration="4182000" />
+      <workItem from="1584274057204" duration="3044000" />
+      <workItem from="1584296446837" duration="6088000" />
+      <workItem from="1584329176859" duration="5227000" />
+      <workItem from="1584364952695" duration="1240000" />
+      <workItem from="1584367443163" duration="15645000" />
+      <workItem from="1584433968602" duration="14807000" />
+      <workItem from="1584452910859" duration="196000" />
+      <workItem from="1584466396605" duration="261000" />
+      <workItem from="1585122220658" duration="1109000" />
+      <workItem from="1585212631158" duration="15000" />
+      <workItem from="1585242916768" duration="1361000" />
+      <workItem from="1585380190548" duration="5558000" />
+      <workItem from="1585394560951" duration="1460000" />
+      <workItem from="1585407364362" duration="40000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="729" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584300558817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="729" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584300558817" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1585381027255">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585381027255" />
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom" timestamp="1585407403397">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585407403397" />
+    <state width="1877" height="234" key="GridCell.Tab.0.center" timestamp="1585407403397">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="234" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585407403397" />
+    <state width="1877" height="234" key="GridCell.Tab.0.left" timestamp="1585407403396">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="234" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585407403396" />
+    <state width="1877" height="234" key="GridCell.Tab.0.right" timestamp="1585407403397">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="234" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585407403397" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1585381035191">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585381035191" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585407380218">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585407380218" />
+    <state x="0" y="304" width="1642" height="821" maximized="true" key="dock-window-1" timestamp="1584368717124">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="304" width="1642" height="821" maximized="true" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1584368717124" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584262912603">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584262912603" />
+  </component>
+</project>

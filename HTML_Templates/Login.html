@@ -1,0 +1,329 @@
+{% load static %}
+{% static 'image' as imgpath %}
+<!DOCTYPE html>
+<html>
+  <head>
+{#    <script type="text/javascript" src="{% static 'registration/validate.js' %}"></script>#}
+      <link type="text/css" rel="stylesheet" media="screen" href="{% static 'registration/registration.css' %}">
+        <link rel="shortcut icon" href="{% static 'image/brain.svg' %}" />
+      <title>Login</title>
+
+        <style>td
+        {
+            padding: 20px;
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 18px;
+        }</style>
+  </head>
+  <body style="overflow-x: hidden;background: #3F51B5;">
+
+	<br>
+	<br>
+
+
+	
+	<form method="post" action="login">
+        {% csrf_token %}
+
+
+    <table class="card" bgcolor="#9FA8DA"style="opacity: 92%" align="center">
+
+      <thead>
+        <tr>
+          <td colspan="2" align="center" class="table_header" style="border-radius:10px 10px 0px 0px">LOGIN</td>
+        </tr>
+      </thead>
+
+
+
+      <tbody style="background-color:#ffffff" bordercolor="#303F9F">
+
+
+
+        {% for message in messages %}
+
+        <tr>
+        	<td colspan="2" style="padding: 8px;font-weight: bold; background-color: #ff0002;color: #fff" align="center">
+                {{ message }}
+        	</td>
+        </tr>
+
+        {% endfor %}
+
+
+
+
+
+        <tr>
+          <td class="container" style="border-radius:0px;">
+            USER NAME
+          </td>
+          <td>
+            <input id="username" class="input_text hov" type="text" name="username" required>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td class="container" style="border-radius:0px;">
+            PASSWORD
+          </td>
+          <td>
+            <input id="pass" class="input_text hov" type="Password" name="password" required>
+          
+          </td>
+        </tr>
+
+
+
+
+
+
+        <tr>
+
+            <td colspan="1" style="padding: 0px; background-color: #303F9F;" >
+        		<button onclick="location.href='registration'" style="" class="submit" >REGISTER</button>
+        	</td>
+
+            <td colspan="1" style="padding: 0px; background-color: #303F9F;">
+        		<button class="submit" style="	">Submit</button>
+        	</td>
+        </tr>
+
+
+
+
+
+      </tbody>
+    </table>
+    </form>
+    <br>
+    </center>
+  <div class="swarm animdiv"   style="background-color: #3F51B5;"></div>
+
+
+  </body>
+</html>
+
+
+<script type="text/javascript">
+
+
+window.requestAnimationFrame =
+	window.requestAnimationFrame ||
+	window.webkitRequestAnimationFrame ||
+	window.mozRequestAnimationFrame ||
+	window.msRequestAnimationFrame ||
+	function(callback) {
+		setTimeout(callback, 1000 / 60);
+	};
+
+Math.clamp = function(n, min, max) {
+	return Math.max(min, Math.min(n, max));
+};
+
+var boids = [],
+	boidsDiv,
+	TURN_SPEED = 0.03,
+	MIN_DIST = 6,
+	MAX_DIST = 30,
+	MOUSE_DIST = 300,
+	targetX,
+	targetY;
+
+function Boid(width, height, speed) {
+	this.x = 0;
+	this.y = 0;
+	this.vx = 0;
+	this.vy = 0;
+	this.angle = 0;
+	this.size = 8;
+	this.speed = speed;
+	this.closestBoid = null;
+
+	this.div = document.createElement('div');
+	this.div.style.width = width + 2 + 'px';
+	this.div.style.height = height + 5 + 'px';
+
+	this.div.style.background = "#8e9cff";
+	this.div.style.border = "0px solid #000";
+	this.div.classList.add('boid');
+}
+
+Boid.prototype.update = function() {
+	this.closestBoid = this.getClosest();
+	if (!this.closestBoid) {
+		return;
+	}
+
+	var hx,
+		hy;
+
+	if (targetX && targetY) {
+		hx = targetX - this.x;
+		hy = targetY - this.y;
+	} else {
+		hx = this.closestBoid.x - this.x;
+		hy = this.closestBoid.y - this.y;
+	}
+
+	var distHeading = Math.sqrt(hx * hx + hy * hy),
+		vxHeading,
+		vyHeading;
+
+	if (distHeading > MOUSE_DIST) {
+		vxHeading = Math.random() - 0.5;
+		vyHeading = Math.random() - 0.5;
+	} else {
+		vxHeading = hx / distHeading;
+		vyHeading = hy / distHeading;
+	}
+
+	var dxClosest = this.closestBoid.x - this.x,
+		dyClosest = this.closestBoid.y - this.y,
+		normClosest = Math.sqrt(dxClosest * dxClosest + dyClosest * dyClosest),
+		distClosest = Math.sqrt(dxClosest * dxClosest + dyClosest * dyClosest) - this.closestBoid.size,
+		vxClosest = dxClosest / normClosest,
+		vyClosest = dyClosest / normClosest,
+		vxAverage,
+		vyAverage;
+
+	if (distClosest > MAX_DIST) {
+		vxAverage = vxHeading + vxClosest;
+		vyAverage = vyHeading + vyClosest;
+	} else if (distClosest < MIN_DIST) {
+		vxAverage = -vxClosest;
+		vyAverage = -vyClosest;
+	} else {
+		vxAverage = vxHeading;
+		vyAverage = vyHeading;
+	}
+
+	var normAverage = Math.sqrt(vxAverage * vxAverage + vyAverage * vyAverage);
+
+	vxAverage = vxAverage / normAverage;
+	vyAverage = vyAverage / normAverage;
+
+	var crossProduct = this.vx * vyAverage - this.vy * vxAverage,
+		angleDifference = Math.abs((this.vx * vxAverage + this.vy * vyAverage > 0) ? Math.asin(crossProduct) : Math.PI - Math.asin(crossProduct));
+
+	if (crossProduct > 0) {
+		this.angle += angleDifference * TURN_SPEED; // Turn right
+	} else {
+		this.angle -= angleDifference * TURN_SPEED; // Turn left
+	}
+
+	this.vx = Math.cos(this.angle);
+	this.vy = Math.sin(this.angle);
+
+	this.move();
+};
+
+Boid.prototype.move = function() {
+	this.x += this.vx * this.speed;
+	this.y += this.vy * this.speed;
+
+	if (this.x < -this.size * 2) {
+		this.x = window.innerWidth;
+	} else if (this.x > window.innerWidth + this.size) {
+		this.x = -this.size;
+	}
+	if (this.y < -this.size * 3) {
+		this.y = window.innerHeight;
+	} else if (this.y > window.innerHeight + this.size) {
+		this.y = -this.size;
+	}
+
+	this.div.style.transform = this.div.style.webkitTransform = this.getTransform();
+};
+
+Boid.prototype.getTransform = function() {
+	return 'translate3d(' + this.x + 'px' + ',' + this.y + 'px,0) rotateZ(' + (this.angle * 180 / Math.PI - 90) + 'deg)';
+};
+
+Boid.prototype.getClosest = function() {
+	var dist = Infinity,
+		closest = null;
+
+	for (var i = boids.length; i--; ) {
+		var b = boids[i];
+		if (this !== b) {
+			var dx = b.x - this.x;
+			var dy = b.y - this.y;
+			var d = dx * dx + dy * dy - b.size * b.size;
+			if (d < dist) {
+				dist = d;
+				closest = b;
+			}
+		}
+	}
+
+	return closest;
+};
+
+function addBoid(b) {
+	boidsDiv.appendChild(b.div);
+	boids.push(b);
+}
+
+function createBoids(total, width, height, speed) {
+	for (var i = total; i--; ) {
+		var b = new Boid(width, height, speed);
+		b.x = Math.random() * window.innerWidth;
+		b.y = Math.random() * window.innerHeight;
+		b.angle = Math.random() * 360;
+		addBoid(b);
+	}
+}
+
+function update() {
+	updateID = requestAnimationFrame(update);
+
+	for (var i = boids.length; i--; ) {
+		var b = boids[i];
+		b.update();
+	}
+}
+
+function init() {
+	boidsDiv = document.querySelector('.swarm');
+
+	var size = Math.sqrt(window.innerWidth * window.innerHeight);
+	if (size < 600) {
+		createBoids(100, 5, 25, 3);
+	} else {
+		createBoids(Math.floor(Math.clamp(size / 5, 100, 250)), 6, 30, 4);
+	}
+
+	window.onmousemove = function(event) {
+		targetX = event.pageX;
+		targetY = event.pageY;
+	};
+
+	document.onmouseout = function(event) {
+		targetX = targetY = 0;
+	};
+
+	document.ontouchstart = function(event) {
+		targetX = event.targetTouches[0].pageX;
+		targetY = event.targetTouches[0].pageY;
+		if (!event.target.href) {
+			event.preventDefault();
+		}
+	};
+
+	document.ontouchmove = function(event) {
+		targetX = event.targetTouches[0].pageX;
+		targetY = event.targetTouches[0].pageY;
+	};
+
+	document.ontouchend = function(event) {
+		targetX = targetY = 0;
+	};
+
+	update();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
+</script>
