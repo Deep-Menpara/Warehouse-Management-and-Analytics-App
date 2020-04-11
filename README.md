@@ -24,4 +24,6 @@ python migrate
 
 ## You can download preview video from here https://github.com/DeepMenpara/Inventory/blob/master/Application%20Preview(DEMO%20VIDEO).mp4
 
+https://github.com/Deep-Menpara/Inventory/blob/master/Application%20Preview(DEMO%20VIDEO).mp4
+
 Thank You!!!
