@@ -1,8 +1,15 @@
 
 # Inventory
-## This is Inventory management Web Application made in django with Python, Java script, HTML, CSS and mysql database
+## WareHouse Management System is an online system that is used to manage the selling and stocks of a company. It also manages its various dealers and the products that they sell.It also manages bills generated and shows profit earned and displays various graphs for better understanding. 
+#It is build using Django framework in Python along with Java Script,HTML and CSS.
+#It uses MySql Server for storing data in database .
 
-## For setup see this video : https://www.youtube.com/watch?v=VuETrwKYLTM&list=PLsyeobzWxl7r2ukVgTqIQcl-1T0C2mzau&index=2
+
+## For framework setup see this video :
+## https://www.youtube.com/watch?v=VuETrwKYLTM&list=PLsyeobzWxl7r2ukVgTqIQcl-1T0C2mzau&index=2
+
+## For more help for database refer:
+## https://www.youtube.com/watch?v=69YkZqZgz9s&list=PLsyeobzWxl7r2ukVgTqIQcl-1T0C2mzau&index=18
 
 ### after setup for database
 run following commands in terminal of path to project folder
@@ -13,5 +20,6 @@ python manage.py makemigrations
 python manage.py sqlmigrate Main_Inventory 001
 python migrate
 ```
-## fo rmore help for database refer https://www.youtube.com/watch?v=69YkZqZgz9s&list=PLsyeobzWxl7r2ukVgTqIQcl-1T0C2mzau&index=18
+##We have also attached a Video of how our project works and what features are included in the repository.
+
 Thank You!!!
