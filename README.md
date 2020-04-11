@@ -22,8 +22,7 @@ python migrate
 ```
 ## We have also attached a Video of how our project works and what features are included in the repository.
 
-## You can download preview video from here https://github.com/DeepMenpara/Inventory/blob/master/Application%20Preview(DEMO%20VIDEO).mp4
-
+## You can download preview video from here :
 https://github.com/Deep-Menpara/Inventory/blob/master/Application%20Preview(DEMO%20VIDEO).mp4
 
 Thank You!!!
