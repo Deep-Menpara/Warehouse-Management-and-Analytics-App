@@ -16,11 +16,11 @@ python manage.py makemigrations
 python manage.py sqlmigrate Main_Inventory 001
 python migrate
 ```
-
+#
 #### 1. pymysql
 ``` pip install pymysql ```
 
-After installation,
+One Last Step,
 Now go to following path in your computer:
 
 C:\Users\ {Your-username-folder} \AppData\Local\Programs\Python\Python38-32\Lib\site-packages\pymysql\
