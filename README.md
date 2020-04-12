@@ -7,7 +7,7 @@
 #
 ### For more help for database refer: https://www.youtube.com/watch?v=69YkZqZgz9s&list=PLsyeobzWxl7r2ukVgTqIQcl-1T0C2mzau&index=18
 #
-### after setup for database
+## After setup of database
 run following commands in terminal of path to project folder
 In pycharm you can directly access terminal
 commands :
@@ -28,7 +28,6 @@ C:\Users\ {Your-username-folder} \AppData\Local\Programs\Python\Python38-32\Lib\
 Replace __init__.py file with uploaded pymysql\__init__.py file.(You can find new __init__.py file in pymysql folder)
 
 #
-## You can download preview video from here :
-https://github.com/Deep-Menpara/Inventory/blob/master/Application%20Preview(DEMO%20VIDEO).mp4
+## You can download preview video from here :https://github.com/Deep-Menpara/Inventory/blob/master/Application%20Preview(DEMO%20VIDEO).mp4
 
 Thank You!!!
