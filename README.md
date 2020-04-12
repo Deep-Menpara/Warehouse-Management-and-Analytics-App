@@ -34,3 +34,27 @@ Replace __init__.py file with uploaded pymysql\__init__.py file.(You can find ne
 ## For any Queries you can refer : https://docs.djangoproject.com/en/3.0/intro/tutorial01/
 
 Thank You!!!
+
+
+## Screenshots
+
+### Registration
+![Screenshot (44)](https://user-images.githubusercontent.com/30389552/79066298-75d49b00-7cd4-11ea-8355-7b8c54576b3e.png)
+
+### Home
+![Screenshot (38)](https://user-images.githubusercontent.com/30389552/79066313-a3214900-7cd4-11ea-94f2-2bd489fe6219.png)
+
+### Product / stock details
+![Screenshot (39)](https://user-images.githubusercontent.com/30389552/79066328-c21fdb00-7cd4-11ea-82b2-0f0b85d47eda.png)
+
+### Add new product
+![Screenshot (40)](https://user-images.githubusercontent.com/30389552/79066340-d2d05100-7cd4-11ea-8eac-f5ca7dd2dd2b.png)
+
+### Cart
+![Screenshot (41)](https://user-images.githubusercontent.com/30389552/79066357-e54a8a80-7cd4-11ea-999e-bcb4e638d5fd.png)
+
+### Profit analysis
+![Screenshot (42)](https://user-images.githubusercontent.com/30389552/79066385-2773cc00-7cd5-11ea-9b7b-d78d70fc400f.png)
+
+### History
+![Screenshot (43)](https://user-images.githubusercontent.com/30389552/79066408-55f1a700-7cd5-11ea-8c5c-80b1c803dbed.png)
