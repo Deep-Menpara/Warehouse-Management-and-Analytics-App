@@ -29,4 +29,8 @@ Replace __init__.py file with uploaded pymysql\__init__.py file.(You can find ne
 #
 ## You can download preview video from here :https://github.com/Deep-Menpara/Inventory/blob/master/Application%20Preview(DEMO%20VIDEO).mp4
 
+#
+
+## For any Queries you can refer : https://docs.djangoproject.com/en/3.0/intro/tutorial01/
+
 Thank You!!!
