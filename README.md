@@ -17,7 +17,7 @@ python manage.py sqlmigrate Main_Inventory 001
 python migrate
 ```
 #
-#### One lat step : Install pymysql by following command
+#### One last step : Install pymysql by following command
 ``` pip install pymysql ```
 
 Now go to following path in your computer:
