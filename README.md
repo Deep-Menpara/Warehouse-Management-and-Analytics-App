@@ -7,7 +7,7 @@
 #
 ### For more help for database refer: https://www.youtube.com/watch?v=69YkZqZgz9s&list=PLsyeobzWxl7r2ukVgTqIQcl-1T0C2mzau&index=18
 #
-## After setup of database
+### After setup of database
 run following commands in terminal of path to project folder
 In pycharm you can directly access terminal
 commands :
