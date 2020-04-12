@@ -53,7 +53,7 @@ Replace __init__.py file with uploaded pymysql\__init__.py file.(You can find ne
 
 #
 
-### Add new product : You can add new qualtity of existing stock or a new item
+### Add new product : You can add new quantity of existing stock or a new item
 ![Screenshot (40)](https://user-images.githubusercontent.com/30389552/79066340-d2d05100-7cd4-11ea-8eac-f5ca7dd2dd2b.png)
 
 #
