@@ -72,6 +72,6 @@ Replace __init__.py file with uploaded pymysql\__init__.py file.(You can find ne
 ![Screenshot (43)](https://user-images.githubusercontent.com/30389552/79066408-55f1a700-7cd5-11ea-8c5c-80b1c803dbed.png)
 
 #
-![Screenshot (44)](https://www.youtube.com/watch?v=OTmQOjsl0eg)
+
 
 Thank You!!!
