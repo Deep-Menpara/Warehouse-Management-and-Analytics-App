@@ -3,7 +3,7 @@
 #### WareHouse Management System is an online system that is used to manage the selling and stocks of a company. It also manages its various dealers and the products that they sell. It manages bills generated and shows profit earned and displays various graphs for better understanding. It is build using Django framework in Python along with Java Script,HTML and CSS. It uses MySql Server for storing data in database .
 #
 
-[![Demo Doccou alpha](https://www.youtube.com/watch?v=ek1j272iAmc)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[<img src="https://www.youtube.com/watch?v=qoyfiI1tXs4/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=qoyfiI1tXs4)
 
 ### For framework setup see this video : https://www.youtube.com/watch?v=VuETrwKYLTM&list=PLsyeobzWxl7r2ukVgTqIQcl-1T0C2mzau&index=2
 #
